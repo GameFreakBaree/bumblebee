@@ -1,6 +1,9 @@
 # Bumblebee
 Bumblebee is a bot designed for moderation and leveling. We also made the bot 100% free for everyone to use. Once we reach 500 guilds we will make a premium bot.
 
+## Suggestions, bugs, feature requests
+Want to contribute? Great, we love that! Please take your time on [opening a new issue](https://github.com/GameFreakBaree/Bumblebee/issues).
+
 ## Commands
 ### Commands for Everyone
 * **b!help** - Displays this Embed.
@@ -32,7 +35,13 @@ Bumblebee is a bot designed for moderation and leveling. We also made the bot 10
 * **c!config** - See all possible commands in config.
 * **b!config command <command> <enable/disable>** - Enable/Disable any command you want. [Default: enable]
 * **b!config maxlevel <1-999>** - Sets the maximum level a user can be. [Default: 99]
-* **b!config setxp <min/max> <0-99>** - Change the maximum and minimum XP a user can get for each message. [Default: min=1, max=5]
+* **b!config setxp <min/max> <0-99>** - Change the max and min XP a user can get for each message. [Default: min=1, max=5]
 * **b!config setcooldown <30-120>** - Set the cooldown between counting the XP in 2 messages. [Default: 60]
 
 ***Possible Commands:*** ban, tempban, unban, mute, tempmute, unmute, kick, clear, warn, automoderator, levels
+
+## License
+This project is licensed under the GNU GPLv3-license. I love to see that other developers learn from my code. You can use it but cannot claim it as yours.
+> You may copy, distribute and modify the software as long as you track changes/dates in source files. Any modifications to or software including (via compiler) GPL-licensed code must also be made available under the GPL along with build & install instructions.  
+
+Fetched from [TLDRLegal](https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3)), please also read the [license](https://github.com/GameFreakBaree/Bumblebee/blob/master/LICENSE) if you plan on using the source code. This is only a short summary. Please also take note of that we are not forced to help you, and we won't help you host it yourself as we do not recommend you doing so.
