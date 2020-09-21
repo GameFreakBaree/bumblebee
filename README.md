@@ -25,11 +25,14 @@ Want to contribute? Great, we love that! Please take your time on [opening a new
 * **b!tempmute \<name> [reason]** - Temporarily mute a user.
 * **b!clear \<name>** - Clear up to 125 messages at a time.
 * **b!warn \<name> [reason]** - Warn a user with a reason.
+* **b!delwarn \<warn_id>** - Delete a specific warning.
+* **b!delwarn all \<name>** - Delete all warnings of a user.
 * **b!config \<setting> [value]** - Configurate the bot however you like.
 
 ### Commands for the Owner of the guild
 * **c!resetall** - Remove all data from the bot in the guild.
 * **b!resetlevels** - Remove all level data from the bot in the guild.
+* **b!resetwarns** - Remove all warns in the guild.
 
 ## Config (c!config)
 * **c!config** - See all possible commands in config.
