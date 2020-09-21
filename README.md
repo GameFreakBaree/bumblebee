@@ -12,6 +12,8 @@ Want to contribute? Great, we love that! Please take your time on [opening a new
 * **b!invite** - Get an invite to add the bot.
 * **b!leaderboard** - Get a leaderboard with the most active users'.
 * **b!rank \<name>** - Returns which level you are and the messages count.
+* **b!warns \<name>** - Gives a list of all warnings of one user.
+* **b!warninfo \<warn_id>** - Gives more information about a specific warning.
 
 ### Commands for users' with MANAGE_SERVER permission
 * **b!kick \<name> [reason]** - Kick a user from the server.
