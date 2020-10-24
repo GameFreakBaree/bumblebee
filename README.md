@@ -1,5 +1,5 @@
 # Bumblebee
-Bumblebee is a bot designed for moderation and leveling. We also made the bot 100% free for everyone to use. Once we reach 500 guilds we will make a premium bot.
+Bumblebee is a bot designed for moderation and leveling. We also made the bot free to use for everyone. Once we reach 500 guilds we will make a premium bot.
 
 ## Suggestions, bugs, feature requests
 Want to contribute? Great, we love that! Please take your time on [opening a new issue](https://github.com/GameFreakBaree/Bumblebee/issues).
