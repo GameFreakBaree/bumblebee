@@ -16,8 +16,15 @@ async def change_status():
     while client.is_ready():
         status = discord.Activity(name=f"Optimus Prime", type=discord.ActivityType.watching)
         await client.change_presence(activity=status)
-        await asyncio.sleep(60)
+        await asyncio.sleep(300)
 
+
+@client.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.CommandNotFound):
+        pass
+    else:
+        raise error
 
 for folder in folder_list:
     print(f"[{bot_name}] ----------------------[ {folder.title()} ]--------------------")
@@ -25,7 +32,6 @@ for folder in folder_list:
         if filename.endswith('.py'):
             print(f"[{bot_name}] {folder.title()} > {filename[:-3]} > Loaded!")
             client.load_extension(f'{folder}.{filename[:-3]}')
-
 print(f"[{bot_name}] ------------------------------------------------------")
 
 client.loop.create_task(change_status())
