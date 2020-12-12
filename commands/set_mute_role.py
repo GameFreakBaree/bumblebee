@@ -15,7 +15,7 @@ class CommandsSetMuteRole(commands.Cog):
         db_bumblebee = mysql.connector.connect(host=host, user=user, passwd=passwd, database=database)
         bumblebee_cursor = db_bumblebee.cursor()
 
-        bumblebee_cursor.execute("SELECT * FROM bumblebee_guildsettings WHERE guild_id = %s" % (ctx.guild.id,))
+        bumblebee_cursor.execute("SELECT * FROM bumblebee_guildsettings WHERE guild_id = %s", (ctx.guild.id,))
         guildsettings = bumblebee_cursor.fetchone()
 
         if guildsettings is None:
@@ -24,7 +24,7 @@ class CommandsSetMuteRole(commands.Cog):
             bumblebee_cursor.execute(insert_guilddata, record)
             db_bumblebee.commit()
 
-        bumblebee_cursor.execute(f"UPDATE bumblebee_guildsettings SET mute_role = %s WHERE guild_id = %s" % (role.id, ctx.guild.id))
+        bumblebee_cursor.execute(f"UPDATE bumblebee_guildsettings SET mute_role = %s WHERE guild_id = %s", (role.id, ctx.guild.id))
         db_bumblebee.commit()
         db_bumblebee.close()
 
