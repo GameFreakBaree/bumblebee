@@ -13,7 +13,7 @@ def get_prefix(client, message):
     db_bumblebee = mysql.connector.connect(host=host, user=user, passwd=passwd, database=database)
     bumblebee_cursor = db_bumblebee.cursor()
 
-    bumblebee_cursor.execute("SELECT prefix FROM bumblebee_guildsettings WHERE guild_id = %s" % (message.guild.id,))
+    bumblebee_cursor.execute("SELECT prefix FROM bumblebee_guildsettings WHERE guild_id = %s", (message.guild.id,))
     prefix_tuple = bumblebee_cursor.fetchone()
 
     bumblebee_cursor.close()
@@ -33,7 +33,7 @@ client.remove_command("help")
 async def change_status():
     await client.wait_until_ready()
     while client.is_ready():
-        status = discord.Activity(name="ALPHA", type=discord.ActivityType.watching)
+        status = discord.Activity(name="Optimus Prime", type=discord.ActivityType.watching)
         await client.change_presence(activity=status)
         await asyncio.sleep(300)
 
