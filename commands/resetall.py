@@ -18,9 +18,10 @@ class CommandsResetAll(commands.Cog):
 
         db_bumblebee = mysql.connector.connect(host=host, user=user, passwd=passwd, database=database)
         bumblebee_cursor = db_bumblebee.cursor()
-        bumblebee_cursor.execute(f"DELETE FROM bumblebee_guildsettings WHERE guild_id = %s", ctx.guild.id)
-        bumblebee_cursor.execute(f"DELETE FROM bumblebee_commands WHERE guild_id = %s", ctx.guild.id)
-        bumblebee_cursor.execute(f"DELETE FROM bumblebee_warns WHERE guild_id = %s", ctx.guild.id)
+        bumblebee_cursor.execute(f"DELETE FROM bumblebee_guildsettings WHERE guild_id = %s", (ctx.guild.id,))
+        bumblebee_cursor.execute(f"DELETE FROM bumblebee_commands WHERE guild_id = %s", (ctx.guild.id,))
+        bumblebee_cursor.execute(f"DELETE FROM bumblebee_warns WHERE guild_id = %s", (ctx.guild.id,))
+        db_bumblebee.commit()
         bumblebee_cursor.execute(insert_guilddata, record)
         db_bumblebee.commit()
         db_bumblebee.close()
