@@ -14,9 +14,9 @@ class OnGuildRemove(commands.Cog):
 
         db_bumblebee = mysql.connector.connect(host=host, database=database, user=user, passwd=passwd)
         bumblebee_cursor = db_bumblebee.cursor()
-        bumblebee_cursor.execute(f"DELETE FROM bumblebee_guildsettings WHERE guild_id = %s", guild.id)
-        bumblebee_cursor.execute(f"DELETE FROM bumblebee_commands WHERE guild_id = %s", guild.id)
-        bumblebee_cursor.execute(f"DELETE FROM bumblebee_warns WHERE guild_id = %s", guild.id)
+        bumblebee_cursor.execute(f"DELETE FROM bumblebee_guildsettings WHERE guild_id = %s", (guild.id,))
+        bumblebee_cursor.execute(f"DELETE FROM bumblebee_commands WHERE guild_id = %s", (guild.id,))
+        bumblebee_cursor.execute(f"DELETE FROM bumblebee_warns WHERE guild_id = %s", (guild.id,))
         db_bumblebee.commit()
         db_bumblebee.close()
 
