@@ -14,10 +14,10 @@ class EventsReactOnTag(commands.Cog):
             db_bumblebee = mysql.connector.connect(host=host, user=user, passwd=passwd, database=database)
             bumblebee_cursor = db_bumblebee.cursor()
 
-            bumblebee_cursor.execute("SELECT prefix FROM bumblebee_guildsettings WHERE guild_id = %s" % (message.guild.id,))
+            bumblebee_cursor.execute("SELECT prefix FROM bumblebee_guildsettings WHERE guild_id = %s", (message.guild.id,))
             prefix_tuple = bumblebee_cursor.fetchone()
 
-            bumblebee_cursor.close()
+            db_bumblebee.close()
 
             if prefix_tuple is None:
                 prefix = "b!"
