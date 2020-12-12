@@ -12,7 +12,6 @@ TIP: If you don't know what the prefix is, use @Bumblebee prefix
 * **b!ping** - Get the ping in milliseconds of the bot.
 * **b!info** - Get all the information about the bot.
 * **b!invite** - Get an invite to add the bot.
-* **b!warninfo \<name>** - Gives a list of all warnings of one user.
 
 ### Commands for users' with MANAGE_SERVER permission
 * **b!kick \<name> [reason]** - Kick a user from the server.
@@ -24,16 +23,17 @@ TIP: If you don't know what the prefix is, use @Bumblebee prefix
 * **b!mute \<name> [reason]** - Mute a user permanently.
 * **b!tempmute \<duration> \<name> [reason]** - Mute a user temporarily.
 * **b!unmute \<name>** - Unmute a user in your server.
-* **b!clear \<name>** - Clear up to 125 messages at a time.
+* **b!clear \<number>** - Clear up to 125 messages at a time.
 * **b!warn \<name> [reason]** - Warn a user with a reason.
 * **b!delwarn \<warn_id>** - Delete a specific warning.
 * **b!delwarn all \<name>** - Delete all warnings of a user.
+* **b!warninfo \<name>** - Gives a list of all warnings of one user.
 * **b!set-prefix \<prefix>** - Setup the prefix for the bot.
 * **b!set-mute-role \<role>** - Setup the mute role.
 * **b!set-logchannel \<#channel>** - Setup the log channel.
 * **b!command \<enable/disable> \<command>** - Enable and disable specific commands.
 
-***Possible Commands:*** ban, tempban, unban, mute, tempmute, unmute, kick, clear, warn
+***Possible Commands:*** ban, mute, kick, clear, warn
 
 ### Commands for the Owner of the guild
 * **b!resetall** - Remove all data from the bot in the guild.
