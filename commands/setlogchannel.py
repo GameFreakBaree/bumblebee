@@ -15,7 +15,7 @@ class CommandsSetLogChannel(commands.Cog):
         db_bumblebee = mysql.connector.connect(host=host, user=user, passwd=passwd, database=database)
         bumblebee_cursor = db_bumblebee.cursor()
 
-        bumblebee_cursor.execute("SELECT * FROM bumblebee_guildsettings WHERE guild_id = %s" % (ctx.guild.id,))
+        bumblebee_cursor.execute("SELECT * FROM bumblebee_guildsettings WHERE guild_id = %s", (ctx.guild.id,))
         guildsettings = bumblebee_cursor.fetchone()
 
         if guildsettings is None:
@@ -24,7 +24,7 @@ class CommandsSetLogChannel(commands.Cog):
             bumblebee_cursor.execute(insert_guilddata, record)
             db_bumblebee.commit()
 
-        bumblebee_cursor.execute(f"UPDATE bumblebee_guildsettings SET logchannel_id = %s WHERE guild_id = %s" % (channel.id, ctx.guild.id))
+        bumblebee_cursor.execute(f"UPDATE bumblebee_guildsettings SET logchannel_id = %s WHERE guild_id = %s", (channel.id, ctx.guild.id))
         db_bumblebee.commit()
         db_bumblebee.close()
 
@@ -37,7 +37,7 @@ class CommandsSetLogChannel(commands.Cog):
         await ctx.send(embed=embed)
 
     @set_logchannel.error
-    async def command_error(self, ctx, error):
+    async def set_logchannel_error(self, ctx, error):
         if isinstance(error, commands.MissingPermissions):
             pass
         elif isinstance(error, commands.ChannelNotFound):
