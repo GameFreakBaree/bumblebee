@@ -51,7 +51,7 @@ class CommandsSetPrefix(commands.Cog):
         db_bumblebee.close()
 
     @set_prefix.error
-    async def command_error(self, ctx, error):
+    async def set_prefix_error(self, ctx, error):
         if isinstance(error, commands.MissingPermissions):
             pass
         else:
