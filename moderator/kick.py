@@ -11,7 +11,7 @@ class ModKick(commands.Cog):
         self.client = client
 
     @commands.command()
-    @commands.has_permissions(kick_members=True)
+    @commands.has_permissions(manage_guild=True)
     async def kick(self, ctx, member: discord.Member = None, *, reason="Unspecified"):
         db_bumblebee = mysql.connector.connect(host=host, database=database, user=user, passwd=passwd)
         bumblebee_cursor = db_bumblebee.cursor()
@@ -59,7 +59,7 @@ class ModKick(commands.Cog):
         db_bumblebee.close()
 
     @commands.command()
-    @commands.has_permissions(kick_members=True)
+    @commands.has_permissions(manage_guild=True)
     async def silentkick(self, ctx, member: discord.Member = None, *, reason="Unspecified"):
         db_bumblebee = mysql.connector.connect(host=host, database=database, user=user, passwd=passwd)
         bumblebee_cursor = db_bumblebee.cursor()
@@ -103,6 +103,8 @@ class ModKick(commands.Cog):
     async def kick_error(self, ctx, error):
         if isinstance(error, commands.MissingPermissions):
             pass
+        elif isinstance(error, commands.CommandInvokeError):
+            await ctx.send("I don't have enough permissions.\nMake sure that I have the permission KICK MEMBERS in at least one of my roles.")
         else:
             raise error
 
@@ -110,6 +112,8 @@ class ModKick(commands.Cog):
     async def silentkick_error(self, ctx, error):
         if isinstance(error, commands.MissingPermissions):
             pass
+        elif isinstance(error, commands.CommandInvokeError):
+            await ctx.send("I don't have enough permissions.\nMake sure that I have the permission KICK MEMBERS in at least one of my roles.")
         else:
             raise error
 
