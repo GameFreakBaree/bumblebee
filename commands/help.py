@@ -16,7 +16,7 @@ class HelpMsg(commands.Cog):
         db_bumblebee = mysql.connector.connect(host=host, user=user, passwd=passwd, database=database)
         bumblebee_cursor = db_bumblebee.cursor()
 
-        bumblebee_cursor.execute("SELECT prefix FROM bumblebee_guildsettings WHERE guild_id = %s" % (ctx.guild.id,))
+        bumblebee_cursor.execute("SELECT prefix FROM bumblebee_guildsettings WHERE guild_id = %s", (ctx.guild.id,))
         prefix_tuple = bumblebee_cursor.fetchone()
 
         bumblebee_cursor.close()
@@ -39,10 +39,11 @@ class HelpMsg(commands.Cog):
                             f"\n• **{prefix}unban <name>** - Unban a user from the server."
                             f"\n• **{prefix}mute <name> [reason]** - Mute a user (must have a valid `Muted` role)."
                             f"\n• **{prefix}unmute <name>** - Unmute a user if they have the Muted role."
-                            f"\n• **{prefix}clear <name>** - Clear up to 125 messages at a time."
+                            f"\n• **{prefix}clear <number>** - Clear up to 125 messages at a time."
                             f"\n• **{prefix}warn <name> [reason]** - Warn a user with a reason."
                             f"\n• **{prefix}delwarn <warn_id>** - Delete a specific warning."
                             f"\n• **{prefix}delwarn all <name>** - Delete all warnings of a user."
+                            f"\n• **{prefix}warninfo <name>** - Gives a list of all warnings of one user."
                             f"\n• **{prefix}set-prefix <prefix>** - Setup the prefix for the bot."
                             f"\n• **{prefix}set-mute-role <role>** - Setup the mute role."
                             f"\n• **{prefix}set-logchannel <#channel>** - Setup the log channel."
@@ -51,8 +52,7 @@ class HelpMsg(commands.Cog):
                             f"\n• **{prefix}help** - Displays this Embed."
                             f"\n• **{prefix}ping** - Get the ping in milliseconds of the bot."
                             f"\n• **{prefix}info** - Get all the information about the bot."
-                            f"\n• **{prefix}invite** - Get an invite to add the bot."
-                            f"\n• **{prefix}warninfo <name>** - Gives a list of all warnings of one user.",
+                            f"\n• **{prefix}invite** - Get an invite to add the bot.",
                 color=embedcolor,
                 timestamp=datetime.datetime.utcnow()
             )
@@ -66,10 +66,11 @@ class HelpMsg(commands.Cog):
                             f"\n• **{prefix}unban <name>** - Unban a user from the server."
                             f"\n• **{prefix}mute <name> [reason]** - Mute a user (must have a valid `Muted` role)."
                             f"\n• **{prefix}unmute <name>** - Unmute a user if they have the Muted role."
-                            f"\n• **{prefix}clear <name>** - Clear up to 125 messages at a time."
+                            f"\n• **{prefix}clear <number>** - Clear up to 125 messages at a time."
                             f"\n• **{prefix}warn <name> [reason]** - Warn a user with a reason."
                             f"\n• **{prefix}delwarn <warn_id>** - Delete a specific warning."
                             f"\n• **{prefix}delwarn all <name>** - Delete all warnings of a user."
+                            f"\n• **{prefix}warninfo <name>** - Gives a list of all warnings of one user."
                             f"\n• **{prefix}set-prefix <prefix>** - Setup the prefix for the bot."
                             f"\n• **{prefix}set-mute-role <role>** - Setup the mute role."
                             f"\n• **{prefix}set-logchannel <#channel>** - Setup the log channel."
@@ -78,8 +79,7 @@ class HelpMsg(commands.Cog):
                             f"\n• **{prefix}help** - Displays this Embed."
                             f"\n• **{prefix}ping** - Get the ping in milliseconds of the bot."
                             f"\n• **{prefix}info** - Get all the information about the bot."
-                            f"\n• **{prefix}invite** - Get an invite to add the bot."
-                            f"\n• **{prefix}warninfo <name>** - Gives a list of all warnings of one user.",
+                            f"\n• **{prefix}invite** - Get an invite to add the bot.",
                 color=embedcolor,
                 timestamp=datetime.datetime.utcnow()
             )
@@ -93,7 +93,7 @@ class HelpMsg(commands.Cog):
             db_bumblebee = mysql.connector.connect(host=host, user=user, passwd=passwd, database=database)
             bumblebee_cursor = db_bumblebee.cursor()
 
-            bumblebee_cursor.execute("SELECT prefix FROM bumblebee_guildsettings WHERE guild_id = %s" % (ctx.guild.id,))
+            bumblebee_cursor.execute("SELECT prefix FROM bumblebee_guildsettings WHERE guild_id = %s", (ctx.guild.id,))
             prefix_tuple = bumblebee_cursor.fetchone()
 
             bumblebee_cursor.close()
@@ -107,8 +107,7 @@ class HelpMsg(commands.Cog):
                 description=f"\n• **{prefix}help** - Displays this Embed."
                             f"\n• **{prefix}ping** - Get the ping in milliseconds of the bot."
                             f"\n• **{prefix}info** - Get all the information about the bot."
-                            f"\n• **{prefix}invite** - Get an invite to add the bot."
-                            f"\n• **{prefix}warninfo <name>** - Gives a list of all warnings of one user.",
+                            f"\n• **{prefix}invite** - Get an invite to add the bot.",
                 color=embedcolor,
                 timestamp=datetime.datetime.utcnow()
             )
