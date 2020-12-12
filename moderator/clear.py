@@ -12,7 +12,7 @@ class ModClear(commands.Cog):
         self.client = client
 
     @commands.command(aliases=["purge", "clean"])
-    @commands.has_permissions(manage_messages=True)
+    @commands.has_permissions(manage_guild=True)
     async def clear(self, ctx, amount=0):
         db_bumblebee = mysql.connector.connect(host=host, database=database, user=user, passwd=passwd)
         bumblebee_cursor = db_bumblebee.cursor()
@@ -72,6 +72,10 @@ class ModClear(commands.Cog):
     async def clear_error(self, ctx, error):
         if isinstance(error, commands.MissingPermissions):
             pass
+        elif isinstance(error, commands.CommandInvokeError):
+            await ctx.send("I don't have enough permissions.\nMake sure that I have the permission MANAGE MESSAGES in at least one of my roles and in this channel.")
+        else:
+            raise error
 
 
 def setup(client):
